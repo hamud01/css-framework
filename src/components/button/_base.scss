@@ -1,49 +1,52 @@
 @use 'sass:map';
 @use '@shared/molecule' as *;
 @use '@shared/transition' as *;
+@use '@mixins/color-mode' as *;
 
 .button {
-  // ==========================================
   @extend %shared-molecule;
-  @extend %shared-transition;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  // ==========================================
+  @extend %shared-transition;   
 
-  // ==========================================
-  --px: var(--space-3);
-  --py: var(--space-2);
+
+
+  display: inline-flex;        
+  align-items: center;        
+  justify-content: center;     
+
+
+
+  --px: var(--space-3); 
+  --py: var(--space-2);  
   --gap: var(--space-3);
   --ring: var(--ring-2);
 
-  --text-sz: var(--text-sz-sm);
-  --text-wght: var(--text-wght-medium);
+  --text-sz: var(--text-sz-sm);           
+  --text-wght: var(--text-wght-medium);  
   
-  --color-bg: var(--color-gray-100);
-  --color-text: var(--color-gray-600);
-  // ==========================================
+  --color-bg: var(--color-gray-100);    
+  --color-text: var(--color-gray-600);  
 
-  // ==========================================
+
+
   &:hover {
-    // @setup:color
     --color-bg: var(--color-gray-200);
     --color-text: var(--color-gray-700);
   }
 
   &:active,
   &:focus {
-    // @setup:color
     --color-ring: var(--color-gray-300);
     position: relative;
   }
-  // ==========================================
   
-  // ==========================================
-  @media (prefers-color-scheme: dark) {
+
+
+  @include color-mode(dark) {
     --color-bg: var(--color-gray-900);
     --color-text: var(--color-grat-400);
   
+
+    
     &:hover  {
       --color-bg: var(--color-gray-800);
       --color-text: var(--color-gray-300);
@@ -54,5 +57,4 @@
       --color-ring: var(--color-gray-700)
     }
   }
-  // ==========================================
 }
