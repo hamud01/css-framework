@@ -1,0 +1,11 @@
+@use 'sass:list';
+@use '@config/color' as *;
+
+@mixin color-mode($mode) {
+  @if not list.index($color-aviable-modes, $mode) {
+    @error "Color mode: \"#{$mode}\" is not aviable";
+  }
+
+  @media (prefers-color-scheme: $mode) { @content; }
+  .mode-#{$mode} { @content };
+}

@@ -1,0 +1,52 @@
+@use '@mixins/color-mode' as *;
+
+%info {
+  --color-bg: var(--color-blue-500);
+  --color-text: var(--color-blue-50);
+}
+
+%info-reactive {
+  &:hover {
+    --color-bg: var(--color-blue-600);
+  }
+
+  &:active,
+  &:focus {
+    --color-ring: var(--color-blue-400);
+  }
+}
+
+%info-reverse {
+  &.is-reverse {
+    --color-bg: var(--color-blue-100);
+    --color-text: var(--color-blue-500);
+    @include color-mode(dark) {
+      --color-bg: var(--color-blue-950);
+      --color-text: var(--color-blue-300);
+    }
+  }
+}
+
+%info-reverse-reactive {
+  &.is-reverse {
+    &:hover {
+      --color-bg: var(--color-blue-200);
+    }
+    
+    &:active,
+    &:focus {
+      --color-ring: var(--color-blue-300);
+    }
+  
+    @include color-mode(dark) {
+      &:hover {
+        --color-bg: var(--color-blue-900);
+      }
+      
+      &:active,
+      &:focus {
+        --color-ring: var(--color-blue-700);
+      }
+    }
+  }
+}

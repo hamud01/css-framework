@@ -1,4 +1,4 @@
-$globals: (
+$color-globals: (
   "gray": (
     50: hsl(0, 0%, 95%),
     100: hsl(0, 0%, 93%),
@@ -97,3 +97,8 @@ $globals: (
     950: hsl(0, 55%, 18%),
   ),
 );
+
+
+
+$color-aviable-roles: primary, info, success, warning, danger;
+$color-aviable-modes: dark, light;

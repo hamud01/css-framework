@@ -1,0 +1,52 @@
+@use '@mixins/color-mode' as *;
+
+%primary {
+  --color-bg: var(--color-indigo-500);
+  --color-text: var(--color-indigo-50);
+}
+
+%primary-reactive {
+  &:hover {
+    --color-bg: var(--color-indigo-600);
+  }
+
+  &:active,
+  &:focus {
+    --color-ring: var(--color-indigo-400);
+  }
+}
+
+%primary-reverse {
+  &.is-reverse {
+    --color-bg: var(--color-indigo-100);
+    --color-text: var(--color-indigo-500);
+    @include color-mode(dark) {
+      --color-bg: var(--color-indigo-950);
+      --color-text: var(--color-indigo-300);
+    }
+  }
+}
+
+%primary-reverse-reactive {
+  &.is-reverse {
+    &:hover {
+      --color-bg: var(--color-indigo-200);
+    }
+    
+    &:active,
+    &:focus {
+      --color-ring: var(--color-indigo-300);
+    }
+  
+    @include color-mode(dark) {
+      &:hover {
+        --color-bg: var(--color-indigo-900);
+      }
+      
+      &:active,
+      &:focus {
+        --color-ring: var(--color-indigo-700);
+      }
+    }
+  }
+}

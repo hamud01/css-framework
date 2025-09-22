@@ -1,0 +1,52 @@
+@use '@mixins/color-mode' as *;
+
+%danger {
+  --color-bg: var(--color-red-500);
+  --color-text: var(--color-red-50);
+}
+
+%danger-reactive {
+  &:hover {
+    --color-bg: var(--color-red-600);
+  }
+
+  &:active,
+  &:focus {
+    --color-ring: var(--color-red-400);
+  }
+}
+
+%danger-reverse {
+  &.is-reverse {
+    --color-bg: var(--color-red-100);
+    --color-text: var(--color-red-500);
+    @include color-mode(dark) {
+      --color-bg: var(--color-red-950);
+      --color-text: var(--color-red-300);
+    }
+  }
+}
+
+%danger-reverse-reactive {
+  &.is-reverse {
+    &:hover {
+      --color-bg: var(--color-red-200);
+    }
+    
+    &:active,
+    &:focus {
+      --color-ring: var(--color-red-300);
+    }
+  
+    @include color-mode(dark) {
+      &:hover {
+        --color-bg: var(--color-red-900);
+      }
+      
+      &:active,
+      &:focus {
+        --color-ring: var(--color-red-700);
+      }
+    }
+  }
+}

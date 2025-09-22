@@ -1,0 +1,52 @@
+@use '@mixins/color-mode' as *;
+
+%warning {
+  --color-bg: var(--color-yellow-500);
+  --color-text: var(--color-yellow-900);
+}
+
+%warning-reactive {
+  &:hover {
+    --color-bg: var(--color-yellow-600);
+  }
+
+  &:active,
+  &:focus {
+    --color-ring: var(--color-yellow-400);
+  }
+}
+
+%warning-reverse {
+  &.is-reverse {
+    --color-bg: var(--color-yellow-100);
+    --color-text: var(--color-yellow-500);
+    @include color-mode(dark) {
+      --color-bg: var(--color-yellow-950);
+      --color-text: var(--color-yellow-300);
+    }
+  }
+}
+
+%warning-reverse-reactive {
+  &.is-reverse {
+    &:hover {
+      --color-bg: var(--color-yellow-200);
+    }
+    
+    &:active,
+    &:focus {
+      --color-ring: var(--color-yellow-300);
+    }
+  
+    @include color-mode(dark) {
+      &:hover {
+        --color-bg: var(--color-yellow-900);
+      }
+      
+      &:active,
+      &:focus {
+        --color-ring: var(--color-yellow-700);
+      }
+    }
+  }
+}
