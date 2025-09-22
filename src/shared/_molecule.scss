@@ -1,0 +1,18 @@
+%shared-molecule {
+  padding-inline: var(--px);
+  padding-block: var(--py);
+  gap: var(--gap);
+
+  font-weight: var(--text-wght, var(--text-wght-normal));
+  font-size: var(--text-sz, var(--text-sz-base));
+  letter-spacing: var(--text-ls, var(--text-ls-normal)) ;
+  line-height: var(--text-lh, var(--text-lh-tight));
+  
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  border-radius: var(--rounded, 0);
+
+  outline-style: var(--ring-style, var(--ring-solid));
+  outline-width: var(--ring, 0);
+  outline-color: var(--color-ring, transparent);
+}

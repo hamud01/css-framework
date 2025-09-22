@@ -1,0 +1,12 @@
+@use '@mixins/map-to-root' as *;
+@use '@config' as *;
+
+:root {
+  // Global configuration vars
+  @include map-to-root('color', $color-globals);
+  @include map-to-root('space', $spacing-size-map);
+  @include map-to-root('icon', $icon-size-map);
+  @include map-to-root('text', $text-config-map);
+  @include map-to-root('rounded', $rounded-config-map);
+  @include map-to-root('ring', $ring-config-map);
+}

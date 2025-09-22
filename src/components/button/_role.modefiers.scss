@@ -1,0 +1,155 @@
+@use "sass:map";
+$button-role-to-color-map: (
+  primary: "indigo",
+  info: "blue",
+  success: "green",
+  warning: "yellow",
+  danger: "red",
+);
+
+$button-role-config-map: (
+  primary: (
+    color-bg: 500,
+    color-text: 50,
+    color-bg-hover: 600,
+    color-active-ring: 400,
+
+    light: (
+      color-bg: 100,
+      color-text: 500,
+      color-bg-hover: 200,
+      color-active-ring: 300,
+    ),
+
+    dark: (
+      color-bg: 950,
+      color-text: 300,
+      color-bg-hover: 900,
+      color-active-ring: 700,
+    ),
+  ),
+
+  info: (
+    color-bg: 500,
+    color-text: 50,
+    color-bg-hover: 600,
+    color-active-ring: 400,
+
+    light: (
+      color-bg: 100,
+      color-text: 500,
+      color-bg-hover: 200,
+      color-active-ring: 300,
+    ),
+
+    dark: (
+    color-bg: 950,
+      color-text: 300,
+      color-bg-hover: 900,
+      color-active-ring: 700,
+    ),
+  ),
+
+  success: (
+    color-bg: 500,
+    color-text: 50,
+    color-bg-hover: 600,
+    color-active-ring: 400,
+
+    light: (
+      color-bg: 100,
+      color-text: 600,
+      color-bg-hover: 200,
+      color-active-ring: 300,
+    ),
+
+    dark: (
+    color-bg: 950,
+      color-text: 300,
+      color-bg-hover: 900,
+      color-active-ring: 700,
+    ),
+  ),
+
+  warning: (
+    color-bg: 500,
+    color-text: 50,
+    color-bg-hover: 600,
+    color-text-hover: 50,
+    color-active-ring: 400,
+
+    light: (
+      color-bg: 100,
+      color-text: 600,
+      color-bg-hover: 200,
+      color-active-ring: 300,
+    ),
+
+    dark: (
+    color-bg: 950,
+      color-text: 300,
+      color-bg-hover: 900,
+      color-active-ring: 700,
+    ),
+  ),
+
+  danger: (
+    color-bg: 500,
+    color-text: 50,
+    color-bg-hover: 600,
+    color-text-hover: 50,
+    color-active-ring: 400,
+
+    light: (
+      color-bg: 100,
+      color-text: 500,
+      color-bg-hover: 200,
+      color-active-ring: 300,
+    ),
+
+    dark: (
+      color-bg: 950,
+      color-text: 300,
+      color-bg-hover: 900,
+      color-active-ring: 700,
+    ),
+  ),
+);
+
+@mixin setup-config-vars($role-name, $config: ()) {
+  $color-name: map.get($button-role-to-color-map, $role-name);
+  $color-bg: map.get($config, color-bg);
+  $color-text: map.get($config, color-text);
+  $color-prefix: "--color-#{$color-name}-";
+
+  --color-bg: var(#{$color-prefix}#{$color-bg});
+  --color-text: var(#{$color-prefix}#{$color-text});
+
+  &:hover {
+    $color-bg: map.get($config, color-bg-hover);
+    --color-bg: var(#{$color-prefix}#{$color-bg});
+  }
+
+  &:active,
+  &:focus {
+    $color-ring: map.get($config, color-active-ring);
+    --color-ring: var(#{$color-prefix}#{$color-ring});
+  }
+}
+
+.button {
+  @each $role-name, $config in $button-role-config-map {
+    &.is-#{$role-name} {
+      @include setup-config-vars($role-name, $config);
+      &.is-inverted {
+        $_config: map.get($config, light);
+        @include setup-config-vars($role-name, $_config);
+
+        @media (prefers-color-scheme: dark) {
+          $_config: map.get($config, dark);
+          @include setup-config-vars($role-name, $_config);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+%shared-transition  {
+  transition-duration: var(--trans-duration, 200ms);
+  transition-timing-function: var(--trans-fn, ease-in-out);
+  transition-property: var(--trans-props, all);
+}

@@ -1,0 +1,29 @@
+@use 'sass:map';
+
+$button-size-config-map: (
+  sm: (
+    px: 2,
+    py: 1,
+    gap:2,
+    text-sz: xs,
+  ),
+  
+  lg: (
+    px: 4,
+    py: 3,
+    gap:4,
+    text-sz: lg,
+  ) 
+);
+
+.button {
+  @each $key, $config in $button-size-config-map {
+    &.is-#{$key} {
+      --px: var(--space-#{map.get($config, px)});
+      --py: var(--space-#{map.get($config, py)});
+      --gap: var(--space-#{map.get($config, px)});
+  
+      --text-sz: var(--text-sz-#{map.get($config, text-sz)});
+    }
+  }
+}

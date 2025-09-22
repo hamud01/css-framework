@@ -1,0 +1,40 @@
+@use '@shared/molecule';
+
+
+* {
+  &,
+  &::after,
+  &::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--text-fam-sans);
+  }
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  @extend %shared-molecule;
+
+  --color-bg: var(--color-gray-50);
+  --color-text: var(--color-gray-700);
+  @media (prefers-color-scheme: dark) {  
+    --color-bg: var(--color-gray-950);
+    --color-text: var(--color-gray-400);
+  }
+}
+
+/// Button
+button,
+a[role=button],
+input[type=button],
+input[type=submit],
+input[type=reset] {
+  all:unset;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}

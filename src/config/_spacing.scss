@@ -1,0 +1,15 @@
+@use 'sass:map';
+
+$spacing-steps: 30;
+$spacing-scale: 4px;
+$spacing-size-map: ();
+
+@for $i from 0 through $spacing-steps {
+  $spacing: $i * $spacing-scale;
+  $spacing-size-map: map.merge(
+    $spacing-size-map,
+    (
+      #{$i}: $spacing
+    )
+  );
+}

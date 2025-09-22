@@ -1,0 +1,21 @@
+@use 'sass:meta';
+
+@mixin map-to-root($prefix, $config-map:(), $context: null) {
+  @each $key, $value in $config-map {
+    @if meta.type-of($value) == 'map' {
+      $_context: if(
+        $context != null,
+        "#{$key}-#{$context}",
+        "#{$key}"
+      );
+        @include map-to-root($prefix, $value, $_context);
+    } @else {
+      $varname: if(
+        $context != null,
+        "#{$context}-#{$key}",
+        "#{$key}"
+      );
+      --#{$prefix}-#{$varname}: #{$value};
+    }
+  }
+}

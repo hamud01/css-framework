@@ -1,0 +1,26 @@
+{
+  "name": "css-project",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "commit": "cz"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "commitizen": "^4.3.1",
+    "hysky": "^1.0.1",
+    "sass": "^1.93.0",
+    "typescript": "~5.8.3",
+    "vite": "^7.1.6"
+  },
+
+   "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}
