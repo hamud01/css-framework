@@ -1,6 +1,7 @@
 @use '@shared/molecule' as *;
 @use '@shared/transition' as *;
 @use '@shared/color-role'  as *;
+@use '@mixins/color-mode' as *;
 
 .menu {
   &,
@@ -19,13 +20,44 @@
   list-style: none;
   width: 100%;
   
+
+  /// Menu label
+  & .label {
+    @extend %shared-molecule;
+    --px: 0;
+    --py: var(--space-1);
+    --text-sz: var(--text-sz-xs);
+    --color-text: var(--color-gray-400);
+    --text-ls: var(--text-ls-wider);
+    
+    text-transform: uppercase;
+    
+    @include color-mode(dark) {
+      --color-text: var(--color-gray-600);
+    }
+  }
+
+
+  /// Menu label
+  & .separator {
+    @extend %shared-molecule;
+    --py: 0;
+    height: 1px;
+    margin-block: var(--space-2);
+    --color-bg: var(--color-gray-200);
+    @include color-mode(dark) {
+      --color-bg: var(--color-gray-900);
+    }
+  }
+
+  /// Menu link
   & a {  
     @extend %shared-transition;
     @extend %color-role-default-reactive;
-    
+    --trans-props: background-color, color;
     --gap: var(--space-2);
     --px: var(--space-3);
-    --py: var(--space-3);
+    --py: var(--space-2);
     --text-wght: var(--text-wght-medium);
     --text-sz: var(--text-sz-sm);
     --icon-sz: var(--icon-xs);
