@@ -1,0 +1,8 @@
+@use '@config/icon' as *;
+.icon {
+  @each $size in $icon-size-variants {
+    &.is-#{$size} {
+      --icon-size: var(--icon-#{$size});
+    }
+  }
+}

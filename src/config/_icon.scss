@@ -13,4 +13,5 @@ $icon-size-map: (
   6xl: 56px,
   7xl: 64px,
 );
-$icon-size-varients: map.keys($icon-size-map);
+
+$icon-size-variants: map.keys($icon-size-map);
