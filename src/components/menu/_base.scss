@@ -1,0 +1,42 @@
+@use '@shared/molecule' as *;
+@use '@shared/transition' as *;
+@use '@shared/color-role'  as *;
+
+.menu {
+  &,
+  & a {
+    @extend %shared-molecule;
+  }
+  
+
+
+  --gap: var(--space-1);
+  --px: var(--space-3);
+  --py: var(--space-3);
+
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  width: 100%;
+  
+  & a {  
+    @extend %shared-transition;
+    @extend %color-role-default-reactive;
+    
+    --gap: var(--space-2);
+    --px: var(--space-3);
+    --py: var(--space-3);
+    --text-wght: var(--text-wght-medium);
+    --text-sz: var(--text-sz-sm);
+    --icon-sz: var(--icon-xs);
+
+    display: flex;
+    align-items: center;
+  
+    &.is-active {
+      @extend %color-role-primary;
+      @extend %color-role-primary-reverse;
+      @extend .is-reverse;
+    }
+  }
+}

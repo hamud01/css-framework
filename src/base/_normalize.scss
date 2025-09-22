@@ -29,7 +29,7 @@ body {
 
 /// Button
 button,
-a[role=button],
+a,
 input[type=button],
 input[type=submit],
 input[type=reset] {
@@ -37,4 +37,5 @@ input[type=reset] {
   border: none;
   font: inherit;
   cursor: pointer;
+  text-decoration: none;
 }

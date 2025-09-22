@@ -20,6 +20,7 @@
   &.is-reverse {
     --color-bg: var(--color-indigo-100);
     --color-text: var(--color-indigo-500);
+    
     @include color-mode(dark) {
       --color-bg: var(--color-indigo-950);
       --color-text: var(--color-indigo-300);
