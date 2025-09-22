@@ -1,11 +1,11 @@
 @use '@mixins/color-mode' as *;
 
-%danger {
+%color-role-danger {
   --color-bg: var(--color-red-500);
   --color-text: var(--color-red-50);
 }
 
-%danger-reactive {
+%color-role-danger-reactive {
   &:hover {
     --color-bg: var(--color-red-600);
   }
@@ -16,7 +16,7 @@
   }
 }
 
-%danger-reverse {
+%color-role-danger-reverse {
   &.is-reverse {
     --color-bg: var(--color-red-100);
     --color-text: var(--color-red-500);
@@ -27,7 +27,7 @@
   }
 }
 
-%danger-reverse-reactive {
+%color-role-danger-reverse-reactive {
   &.is-reverse {
     &:hover {
       --color-bg: var(--color-red-200);

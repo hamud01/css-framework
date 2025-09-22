@@ -1,11 +1,11 @@
 @use '@mixins/color-mode' as *;
 
-%primary {
+%color-role-primary {
   --color-bg: var(--color-indigo-500);
   --color-text: var(--color-indigo-50);
 }
 
-%primary-reactive {
+%color-role-primary-reactive {
   &:hover {
     --color-bg: var(--color-indigo-600);
   }
@@ -16,7 +16,7 @@
   }
 }
 
-%primary-reverse {
+%color-role-primary-reverse {
   &.is-reverse {
     --color-bg: var(--color-indigo-100);
     --color-text: var(--color-indigo-500);
@@ -27,7 +27,7 @@
   }
 }
 
-%primary-reverse-reactive {
+%color-role-primary-reverse-reactive {
   &.is-reverse {
     &:hover {
       --color-bg: var(--color-indigo-200);

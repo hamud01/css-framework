@@ -1,18 +1,26 @@
 %shared-molecule {
-  padding-inline: var(--px);
-  padding-block: var(--py);
-  gap: var(--gap);
+  padding-inline: var(--px);        // Horizontal padding (left/right)
+  padding-block: var(--py);         // Vertical padding (top/bottom)
+  gap: var(--gap);                  // Gap between child elements (for flex/grid)
 
-  font-weight: var(--text-wght, var(--text-wght-normal));
-  font-size: var(--text-sz, var(--text-sz-base));
-  letter-spacing: var(--text-ls, var(--text-ls-normal)) ;
-  line-height: var(--text-lh, var(--text-lh-tight));
+  font-weight: var(--text-wght, var(--text-wght-normal));     // Font weight with fallback
+  font-size: var(--text-sz, var(--text-sz-base));            // Font size with fallback  
+  letter-spacing: var(--text-ls, var(--text-ls-normal));     // Letter spacing with fallback
+  line-height: var(--text-lh, var(--text-lh-tight));         // Line height with fallback
   
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  border-radius: var(--rounded, 0);
+  background-color: var(--color-bg);         // Background color
+  color: var(--color-text);                  // Text color
+  border-radius: var(--rounded, 0);          // Border radius with default 0
 
-  outline-style: var(--ring-style, var(--ring-solid));
-  outline-width: var(--ring, 0);
-  outline-color: var(--color-ring, transparent);
+  outline-style: var(--ring-style, var(--ring-solid));  // Outline style with fallback
+  outline-width: var(--ring, 0);                       // Outline width (default: 0)
+  outline-color: var(--color-ring, transparent);       // Outline color with fallback
+
+
+  // Molecule that has icon
+  &:has(.icon) {
+    & .icon {
+      font-size: var(--icon-sz);
+    }
+  }
 }

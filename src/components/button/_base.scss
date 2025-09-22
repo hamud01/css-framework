@@ -2,11 +2,14 @@
 @use '@shared/molecule' as *;
 @use '@shared/transition' as *;
 @use '@mixins/color-mode' as *;
+@use '@shared/color-role' as *;
 
 .button {
   @extend %shared-molecule;
   @extend %shared-transition;   
 
+  @extend %color-role-default;
+  @extend %color-role-default-reactive;
 
 
   display: inline-flex;        
@@ -23,38 +26,4 @@
   --text-sz: var(--text-sz-sm);           
   --text-wght: var(--text-wght-medium);  
   
-  --color-bg: var(--color-gray-100);    
-  --color-text: var(--color-gray-600);  
-
-
-
-  &:hover {
-    --color-bg: var(--color-gray-200);
-    --color-text: var(--color-gray-700);
-  }
-
-  &:active,
-  &:focus {
-    --color-ring: var(--color-gray-300);
-    position: relative;
-  }
-  
-
-
-  @include color-mode(dark) {
-    --color-bg: var(--color-gray-900);
-    --color-text: var(--color-grat-400);
-  
-
-    
-    &:hover  {
-      --color-bg: var(--color-gray-800);
-      --color-text: var(--color-gray-300);
-    }
-  
-    &:focus,
-    &:active {
-      --color-ring: var(--color-gray-700)
-    }
-  }
 }

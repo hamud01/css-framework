@@ -1,11 +1,11 @@
 @use '@mixins/color-mode' as *;
 
-%warning {
+%color-role-warning {
   --color-bg: var(--color-yellow-500);
   --color-text: var(--color-yellow-900);
 }
 
-%warning-reactive {
+%color-role-warning-reactive {
   &:hover {
     --color-bg: var(--color-yellow-600);
   }
@@ -16,10 +16,10 @@
   }
 }
 
-%warning-reverse {
+%color-role-warning-reverse {
   &.is-reverse {
     --color-bg: var(--color-yellow-100);
-    --color-text: var(--color-yellow-500);
+    --color-text: var(--color-yellow-600);
     @include color-mode(dark) {
       --color-bg: var(--color-yellow-950);
       --color-text: var(--color-yellow-300);
@@ -27,7 +27,7 @@
   }
 }
 
-%warning-reverse-reactive {
+%color-role-warning-reverse-reactive {
   &.is-reverse {
     &:hover {
       --color-bg: var(--color-yellow-200);

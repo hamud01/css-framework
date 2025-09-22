@@ -6,6 +6,7 @@ $button-size-config-map: (
     py: 1,
     gap:2,
     text-sz: xs,
+    icon-sz: xs
   ),
   
   lg: (
@@ -13,6 +14,7 @@ $button-size-config-map: (
     py: 3,
     gap:4,
     text-sz: lg,
+    icon:md
   ) 
 );
 
@@ -24,6 +26,8 @@ $button-size-config-map: (
       --gap: var(--space-#{map.get($config, px)});
   
       --text-sz: var(--text-sz-#{map.get($config, text-sz)});
+
+      --icon-sz: var(--icon-sz-#{map.get($config, icon)});
     }
   }
 }

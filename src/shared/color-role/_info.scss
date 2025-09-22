@@ -1,11 +1,11 @@
 @use '@mixins/color-mode' as *;
 
-%info {
+%color-role-info {
   --color-bg: var(--color-blue-500);
   --color-text: var(--color-blue-50);
 }
 
-%info-reactive {
+%color-role-info-reactive {
   &:hover {
     --color-bg: var(--color-blue-600);
   }
@@ -16,7 +16,7 @@
   }
 }
 
-%info-reverse {
+%color-role-info-reverse {
   &.is-reverse {
     --color-bg: var(--color-blue-100);
     --color-text: var(--color-blue-500);
@@ -27,7 +27,7 @@
   }
 }
 
-%info-reverse-reactive {
+%color-role-info-reverse-reactive {
   &.is-reverse {
     &:hover {
       --color-bg: var(--color-blue-200);

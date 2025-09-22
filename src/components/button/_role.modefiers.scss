@@ -4,10 +4,10 @@
 .button {
   @each $role in $color-aviable-roles {
     &.is-#{$role} {
-      @extend %#{$role};
-      @extend %#{$role}-reactive;
-      @extend %#{$role}-reverse;
-      @extend %#{$role}-reverse-reactive;
+      @extend %color-role-#{$role};
+      @extend %color-role-#{$role}-reactive;
+      @extend %color-role-#{$role}-reverse;
+      @extend %color-role-#{$role}-reverse-reactive;
     }
   }
 }
