@@ -1,0 +1,28 @@
+@use '@mixins/color-mode' as *;
+
+.menu {
+  &.is-submenu {
+    border-left: 1px solid var(--color-gray-200);
+    margin-inline: var(--space-5);
+    margin-block: var(--space-2);
+
+    @include color-mode(dark) {
+      border-left-color: var(--color-gray-900);
+    }
+  }
+}
+
+
+.menu {
+  &.is-submenu {
+    & .menu-link {
+      --px: 0;
+      --color-text: var(--color-gray-500);
+      &.is-active {
+        --color-bg: transparent;
+        --color-text: var(--color-indigo-600);
+        --text-sx: var(--text-sz-sx)
+      }
+    }
+  }
+}

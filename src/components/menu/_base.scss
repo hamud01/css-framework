@@ -10,7 +10,6 @@
   }
   
 
-
   --gap: var(--space-1);
   --px: var(--space-3);
   --py: var(--space-3);
@@ -50,8 +49,24 @@
     }
   }
 
-  /// Menu link
-  & a {  
+}
+
+
+
+
+.menu {
+
+  /// Active state for parent <li> when one of its children is active
+  & li:has(.is-active) {
+    & > .menu-link {
+      @extend %color-role-primary;
+      @extend %color-role-primary-reverse;
+      @extend .is-reverse;
+    }
+  }
+
+  &-link {
+    @extend %shared-molecule;
     @extend %shared-transition;
     --trans-props: background-color, color;
     --gap: var(--space-2);
@@ -71,7 +86,6 @@
       }
     }
 
-
     &.is-active {
       @extend %color-role-primary;
       @extend %color-role-primary-reverse;
@@ -79,5 +93,3 @@
     }
   }
 }
-
-
