@@ -1,0 +1,7 @@
+@use '@mixins/menu-inline' as *;
+
+.menu {
+  &.is-inline {
+    @include menu-inline;
+  }
+}

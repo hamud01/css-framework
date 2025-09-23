@@ -1,0 +1,15 @@
+@mixin menu-inline {
+  flex-direction: row;
+
+  & .label,
+  & .separator {
+    display: none;
+  }
+
+  & a {
+    &.is-active {
+      --color-bg: transparent;
+      --color-text: var(--color-indigo-600);
+    }
+  }
+}
